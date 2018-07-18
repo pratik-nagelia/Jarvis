@@ -11,7 +11,7 @@ def main():
 
 @app.route("/<gpio>/<state>")
 def switch_state(gpio, state):
-    switch(gpio, state)
+    switch(int(gpio), state)
     return gpio + ":" + state
 
 
