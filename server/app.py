@@ -17,4 +17,4 @@ def switch_state(gpio, state):
 
 if __name__ == "__main__":
     init()
-    app.run()
+    app.run(host="0.0.0.0")
