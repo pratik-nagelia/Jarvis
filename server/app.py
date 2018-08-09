@@ -7,7 +7,9 @@ CORS(app)
 
 @app.route("/")
 def main():
-    return "Welcome to Patrick's Den !!"
+    with open('index.html', 'r') as myfile:
+        data = myfile.read().replace('\n', '')
+    return data
 
 
 @app.route("/<gpio>/<state>")

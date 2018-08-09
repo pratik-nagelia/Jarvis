@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jarvis | Patrick's Den</title>
+	<style type="text/css">
+</style>
+</head>
+<body>
+	<input type="checkbox" onclick="callAction(this.id)" id="lamp" value="21">Lamp<br>
+	<input type="checkbox" onclick="callAction(this.id)" id="ledlight" value="16">Led Light<br>
+	<input type="checkbox" onclick="callAction(this.id)" id="fan" value="19">Fan<br>
+	<input type="checkbox" onclick="callAction(this.id)" id="light" value="13">Light<br>
+	<input type="checkbox" onclick="callAction(this.id)" id="allout" value="20">All Out<br>
+
+
+	<script>
+		function callAction(switchName) {
+			var checkbox = document.getElementById(switchName);
+			var switchNo = document.getElementById(switchName).value;
+			if (checkbox.checked == true)
+			{
+				swithch(switchNo, "ON");
+			} else {
+				swithch(switchNo, "OFF");
+			}
+		}
+
+		function swithch(switchNo,state) {
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+				}
+			};
+			xhttp.open("GET", "http://localhost:5000/" + switchNo + "/" + state, true);
+			xhttp.setRequestHeader("Content-type", "application/json");
+			xhttp.send(null);
+		}
+	</script>
+</body>
+</html>
